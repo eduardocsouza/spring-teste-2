@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<title>Página Lista de Usuários</title>
+</head>
+<body>
+	<h2>Lista de Usuários</h2>
+	
+	<div th:each="usuario : ${usuario}">
+		<div class="row">
+			<p><span th:text="${usuario.nome}"></span></p>
+			<p><span th:text=${usuario.email}></span></p>
+		</div>
+	</div>
+</body>
+</html>
