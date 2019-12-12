@@ -1,11 +1,14 @@
 package cadastroUsuario.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario implements Serializable {
@@ -19,6 +22,9 @@ public class Usuario implements Serializable {
 	private String nome;
 	private String email;
 	private String senha;
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<Telefone> list = new ArrayList<>();
 	
 	public Usuario(){
 	}
@@ -61,6 +67,10 @@ public class Usuario implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public List<Telefone> getList() {
+		return list;
+	}
 
 	@Override
 	public int hashCode() {
@@ -86,6 +96,8 @@ public class Usuario implements Serializable {
 			return false;
 		return true;
 	}
+
+	
 	
 	
 
