@@ -7,32 +7,25 @@
 <title>Cadastro Usuário</title>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
-<link type="text/css" rel="stylesheet" href="materialize.min.css"  media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="/materialize/css/materialize.css"  media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="/materialize.min.css"  media="screen,projection"/>
 
 
 </head>
 <body>
 	<h3>Cadastro de Usuário</h3>
-	<form class="container" action="/cadastroUsuario"  method="post">
+<form class="container" action="/cadastroUsuario"  method="post" th:object="${usuario}">
 		<div class="row">	
 			<div class="input-field col s6">
-			Nome: <input type="text" value="" name="nome"/>
-		
-			Email: <input type="text" value="" name="email"/>
-		
-			Senha: <input type="password" value="" name="senha"/>		
-			
-			DDD: <input type="number"  value="" name="ddd">
-		
-			Telefone: <input type="text" value="" name="numero">
-		
-			Tipo: <input type="text" value="" name="tipo">
+				ID: <input name="id" th:field="*{id}" readonly="readonly">
+				Nome: <input type="text" value="" name="nome" th:field="*{nome}"/>		
+				Email: <input type="text" value="" name="email" th:field="*{email}"/>		
+				Senha: <input type="password" value="" name="senha"/>			
 			</div>			
 		</div>
-		<button type="submit">Salvar</button>	
-			   			
-	</form>
+		<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+		<a href="/listaUsuarios" class="btn-floating pulse"><i class="material-icons">menu</i></a>			   			
+	</form>	
 	
 <script type="text/javascript" src="materialize/js/materialize.js"></script>	
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>		

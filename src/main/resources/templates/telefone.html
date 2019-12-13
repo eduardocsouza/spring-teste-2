@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
+<meta charset="UTF-8">
+<meta charset="ISO-8859-1">
+<title>Cadastro Usuário</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.css" media="screen,projection" />
+<link type="text/css" rel="stylesheet" href="materialize.min.css"
+	media="screen,projection" />
 
 </head>
 
 <body>
+	<h3>Telefône</h3>
+	<form class="container" action="/cadastroTelefone" method="post">
+		<div class="row">
+			<div class="input-field col s3">
+				DDD: <input type="number" value="" name="ddd"> 
+				Telefone: <input type="text" value="" name="numero"> 
+				Tipo: <input type="text" value="" name="tipo"> 
+				Telefone: <input type="text" value="" name="numero"> 
+				Tipo: <input type="text" value="" name="tipo">
 
-<form action="telefone" method="post">
-		DDD: <input type="number" value="" name="ddd">
-		Telefone: <input type="text" value="" name="numero">
-		Tipo: <input type="text" value="" name="tipo">
+			</div>
+
+		</div>
+
+		<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
 		
-		<button type="submit">Salvar</button>
-</form>
+	</form>
+	<script type="text/javascript" src="materialize/js/materialize.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
 </body>
-
 </html>

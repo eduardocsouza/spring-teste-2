@@ -1,6 +1,7 @@
 package cadastroUsuario.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,21 @@ public class UserService {
 	
 	public ModelAndView findAll(){
 		ModelAndView mv = new ModelAndView("lista");
+		List<Usuario> list = repository.findAll();
+		mv.addObject("usuario", list);
+		return mv;
+	}
+	
+	public ModelAndView editar(long id) {
+		ModelAndView mv = new ModelAndView("cadastro");
+		Optional<Usuario> user = repository.findById(id);
+		mv.addObject("usuario", user.get());
+		return mv;
+	}
+	
+	public ModelAndView excluir(long id) {
+		ModelAndView mv = new ModelAndView("lista");
+		repository.deleteById(id);
 		List<Usuario> list = repository.findAll();
 		mv.addObject("usuario", list);
 		return mv;

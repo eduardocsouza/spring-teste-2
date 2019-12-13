@@ -27,17 +27,19 @@ public class Telefone implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private Usuario usuario;
-	
+			
 	public Telefone() {
 	}
-
+	
 	public Telefone(Long id, Integer ddd, String numero, String tipo, Usuario usuario) {
 		this.id = id;
 		this.ddd = ddd;
 		this.numero = numero;
 		this.tipo = tipo;
-		this.setUsuario(usuario);
+		this.usuario = usuario;
 	}
+
+
 
 	public Long getId() {
 		return id;

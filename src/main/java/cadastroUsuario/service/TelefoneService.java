@@ -14,16 +14,18 @@ public class TelefoneService {
 	
 	@Autowired
 	private TelefoneRepository repository;
-			
-	public Telefone addTel(Telefone tel) {
-		return repository.save(tel);
-	}
 	
-	public ModelAndView findAll(){
-		ModelAndView mv = new ModelAndView("lista");
-		List<Telefone> list = repository.findAll();
-		mv.addObject("usuario", list);
-		return mv;
-	}
+				
+		public Telefone addTel(Telefone tel) {
+			return repository.save(tel);
+		}
+		
+		public ModelAndView findAll(){
+			ModelAndView mv = new ModelAndView("lista");
+			List<Telefone> list = repository.findAll();
+			mv.addObject("usuario", list);
+			return mv;
+		}
+
 
 }
