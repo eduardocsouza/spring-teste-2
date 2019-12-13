@@ -2,30 +2,28 @@ package cadastroUsuario.resoucer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import cadastroUsuario.entity.Usuario;
 import cadastroUsuario.service.UserService;
 
 @Controller
-@RequestMapping("usuario")
 public class UserResource {
 
 	@Autowired
 	private UserService services;
 			
-	@GetMapping
+	@RequestMapping(value = "/cadastroUsuario", method= RequestMethod.GET)
 	public String form() {
 		return "cadastro";
 	}	
 	
-	@PostMapping
+	@RequestMapping(value = "/cadastroUsuario", method = RequestMethod.POST)
 	public String form(Usuario user) {
 		services.addUser(user);
-		return "redirect:usuario";
+		return "redirect:/cadastroUsuario";
 	}
 		
 	
