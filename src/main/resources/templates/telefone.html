@@ -7,35 +7,36 @@
 <meta charset="ISO-8859-1">
 <title>Cadastro Usuário</title>
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-<link type="text/css" rel="stylesheet"
-	href="materialize/css/materialize.css" media="screen,projection" />
-<link type="text/css" rel="stylesheet" href="materialize.min.css"
-	media="screen,projection" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/materialize/css/materialize.css"  media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="/materialize.min.css"  media="screen,projection"/>
 
 </head>
 
 <body>
-	<h3>Telefône</h3>
-	<form class="container" action="/cadastroTelefone" method="post">
-		<div class="row">
-			<div class="input-field col s3">
-				DDD: <input type="number" value="" name="ddd"> 
-				Telefone: <input type="text" value="" name="numero"> 
-				Tipo: <input type="text" value="" name="tipo"> 
-				Telefone: <input type="text" value="" name="numero"> 
-				Tipo: <input type="text" value="" name="tipo">
-
-			</div>
-
+	<h3>Usuário Cadastrado:</h3>
+	<div th:each="usuario : ${usuario}">
+		<div class="container">
+			<p>ID: <span th:text="${usuario.id}"></span></p>
+			<p>Nome: <span th:text="${usuario.nome}"></span></p>
+			<p>Email: <span th:text="${usuario.email}"></span></p>		
 		</div>
-
-		<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
-		
+	</div>
+	
+	<h6>Telefones</h6>
+	<form class="container" th:action="@{/addTelUsuario/{id}(id=${usuario.id})}"  method="post" th:object="${usuario}">
+		<div class="row">
+			<div class="input-field col s6">
+				DDD: <input type="number" value="" name="ddd"/>		
+				Número: <input type="number" value="" name="numero"/>		
+				Tipo: <input type="text" value="" name="tipo"/>
+			</div>
+		</div>
+		<button class="waves-effect waves-light btn" type="submit">Adicionar</button>				
 	</form>
-	<script type="text/javascript" src="materialize/js/materialize.js"></script>
-	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	
+<script type="text/javascript" src="materialize/js/materialize.js"></script>	
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
 </body>
 </html>

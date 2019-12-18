@@ -9,37 +9,25 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Telefone implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer ddd;
 	private String numero;
 	private String tipo;
 	
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private Usuario usuario;
 			
 	public Telefone() {
 	}
-	
-	public Telefone(Long id, Integer ddd, String numero, String tipo, Usuario usuario) {
-		this.id = id;
-		this.ddd = ddd;
-		this.numero = numero;
-		this.tipo = tipo;
-		this.usuario = usuario;
-	}
-
-
 
 	public Long getId() {
 		return id;

@@ -21,11 +21,15 @@ public class TelefoneService {
 		}
 		
 		public ModelAndView findAll(){
-			ModelAndView mv = new ModelAndView("lista");
+			ModelAndView mv = new ModelAndView("listaTelefone");
 			List<Telefone> list = repository.findAll();
-			mv.addObject("usuario", list);
+			mv.addObject("telefone", list);
 			return mv;
 		}
-
+		
+		public List<Telefone> listTelefone(){
+			return repository.findAll();
+		}
+				
 
 }
